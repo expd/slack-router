@@ -34,6 +34,7 @@ var main = function(opts) {
       })
 
       if(r) {
+        console.info('Applying router')
         json = _.extend(json , _.omit(r,'regex'))
       }
 
