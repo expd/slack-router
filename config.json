@@ -1,0 +1,7 @@
+{
+  "port" : 8192,
+  "url" : "https://hooks.slack.com/services/<incoming-webhook-key>",
+  "routes" : [
+    { "channel" : "silly" , "regex" : "/silly/i"}
+  ]
+}
