@@ -8,10 +8,9 @@ var main = function(opts) {
   var port = opts.port
 
   var routes = _.map(opts.routes, function(route) {
-    return {
-      'channel': route.channel,
+    return _.extend(_.omit(route , 'regex') , {
       'regex': eval(route.regex)
-    }
+    })
   })
 
   console.info(routes)
@@ -35,11 +34,10 @@ var main = function(opts) {
       })
 
       if(r) {
-        json.channel = r.channel
+        json = _.extend(json , _.omit(r,'regex'))
       }
 
       request.post( { url:url , json:true , body:json}).pipe(res)
-
     })
   });
 
